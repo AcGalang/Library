@@ -85,6 +85,7 @@ This project is an API designed to manage users, authors, books, and their assoc
 **Payload:**
 ```json
 {
+    "token": "your_token"
     "name": "author_name"
 }
 ```
@@ -131,7 +132,7 @@ This project is an API designed to manage users, authors, books, and their assoc
 ```json
 {
     "title": "book_title",
-    "isbn": "book_isbn"
+    "authorid": "author_id"
 }
 ```
 
@@ -154,7 +155,7 @@ This project is an API designed to manage users, authors, books, and their assoc
     "token": "your_token",
     "bookid": "book_id",
     "title": "new_book_title",
-    "isbn": "new_book_isbn"
+    "authorid": "author_id"
 }
 ```
 
@@ -172,18 +173,19 @@ This project is an API designed to manage users, authors, books, and their assoc
 ### Book-Author Association
 
 #### Associate Book with Author
-**Endpoint:** `/book_author/associate`  
+**Endpoint:** `/book_authors/register`  
 **Method:** POST  
 **Payload:**
 ```json
 {
+    "token": "your_token",
     "bookid": "book_id",
     "authorid": "author_id"
 }
 ```
 
 #### Show Book-Author Associations
-**Endpoint:** `/book_author/show`  
+**Endpoint:** `/book_authors/show`  
 **Method:** GET  
 **Header:**
 ```json
@@ -192,15 +194,27 @@ This project is an API designed to manage users, authors, books, and their assoc
 }
 ```
 
+#### Update Book-Author Association
+**Endpoint:** `/book_authors/update`  
+**Method:** PUT  
+**Header:**
+```json
+{
+    "token": "your_token",
+    "collection_id": "collection_id",
+    "bookid": "book_id",
+    "authorid": "author_id"
+}
+```
+
 #### Remove Book-Author Association
-**Endpoint:** `/book_author/remove`  
+**Endpoint:** `/book_author/delete`  
 **Method:** DELETE  
 **Header:**
 ```json
 {
     "token": "your_token",
-    "bookid": "book_id",
-    "authorid": "author_id"
+    "collection_id": "collection_id",
 }
 ```
 
